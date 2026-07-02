@@ -17,12 +17,14 @@ class CriarPedidoUseCase:
         repositorio_caixa,
         repositorio_pedido,
         publicador_eventos,
+        publicador_fila,  
     ) -> None:
         self._sessao = sessao
         self._repositorio_produto = repositorio_produto
         self._repositorio_combo = repositorio_combo
         self._repositorio_caixa = repositorio_caixa
         self._repositorio_pedido = repositorio_pedido
+        self._publicador_fila = publicador_fila
         self._estoque_service = EstoqueService(repositorio_ingrediente, publicador_eventos)
 
     def executar(self, dto: CriarPedidoDTO) -> Pedido:
@@ -53,4 +55,5 @@ class CriarPedidoUseCase:
 
         self._repositorio_pedido.salvar(pedido)
         self._sessao.commit()
+        self._publicador_fila.publicar(pedido)  # Publica o pedido na fila RabbitMQ
         return pedido
