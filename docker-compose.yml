@@ -15,13 +15,14 @@ services:
       timeout: 5s
       retries: 5
 
-  # rabbitmq:
-  #   image: rabbitmq:3-management-alpine
-  #   ports:
-  #     - "5672:5672"
-  #     - "15672:15672"
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: pdv-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
 
-  # redis:  # Épico 6 — habilitar quando integrar cache/sessões
+  # redis:  
   #   image: redis:7-alpine
   #   ports:
   #     - "6379:6379"
