@@ -16,6 +16,7 @@ class Configuracoes(BaseSettings):
     db_senha: str = "pdv"
     ambiente: str = "development"
     jwt_secret: str = "change-me"
+    rabbitmq_url: str = "amqp://guest:guest@localhost:5672/"
 
     @property
     def database_url(self) -> str:
