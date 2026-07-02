@@ -8,3 +8,10 @@ class CaixaFechadoError(Exception):
 
 class TransicaoStatusInvalidaError(Exception):
     """Levantada ao tentar mover o pedido para um status não permitido pela máquina de estados."""
+
+
+class IngredienteNaoEncontradoError(Exception):
+    """Levantada quando ingrediente referenciado não existe."""
+
+class ProdutoNaoEncontradoError(Exception):
+    """Levantada quando produto referenciado não existe."""

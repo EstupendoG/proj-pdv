@@ -34,7 +34,7 @@ class CriarIngredientesUseCase:
 class VincularComposicaoUseCase:
     def __init__(self, sessao, repositorio_produtos, repositorio_ingredientes) -> None:
         self._sessao = sessao
-        self._repositorio_produtos = repositorio_produtos
+        self._repositorio_produto = repositorio_produtos
         self._repositorio_ingredientes = repositorio_ingredientes
 
     def executar(self, dto: VincularComposicaoDTO) -> None:
