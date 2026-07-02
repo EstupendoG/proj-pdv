@@ -1,6 +1,13 @@
 from fastapi import FastAPI
-app = FastAPI()
 
-@app.get ("/")
-def read_root() -> dict[str, str]:
-    return {"message": "Hello, World!"}
+from src.config.settings import obter_configuracoes
+
+config = obter_configuracoes()
+
+app = FastAPI(title="PDV Backend")
+
+
+
+@app.get("/health")
+def health() -> dict[str, str]:
+    return {"status": "ok", "ambiente": config.ambiente}
